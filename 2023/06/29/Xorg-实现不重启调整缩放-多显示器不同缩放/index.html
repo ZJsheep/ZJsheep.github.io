@@ -19,17 +19,19 @@
     <meta name="description" content="为了帮助搜索，这里加点 tag。 （ubuntu, kde, x-server, kubuntu, plasma, x-org）  这篇文章对你有帮助吗？首先，本文适用于使用 Xorg 图形服务的 Linux 系统，如果你不在使用 Xorg，那此文对你没有帮助。  目前 Gnome 默认使用 Wayland 而非 Xorg，因此默认配置的 Ubuntu 20.04~22.04 不适用。 目前 K">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放">
-<meta property="og:url" content="http://example.com/2023/06/29/Xorg-%E5%AE%9E%E7%8E%B0%E4%B8%8D%E9%87%8D%E5%90%AF%E8%B0%83%E6%95%B4%E7%BC%A9%E6%94%BE-%E5%A4%9A%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%8D%E5%90%8C%E7%BC%A9%E6%94%BE/index.html">
+<meta property="og:url" content="https://zjsheep.github.io/2023/06/29/Xorg-%E5%AE%9E%E7%8E%B0%E4%B8%8D%E9%87%8D%E5%90%AF%E8%B0%83%E6%95%B4%E7%BC%A9%E6%94%BE-%E5%A4%9A%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%8D%E5%90%8C%E7%BC%A9%E6%94%BE/index.html">
 <meta property="og:site_name" content="ZJsheep&#39;s Dream">
 <meta property="og:description" content="为了帮助搜索，这里加点 tag。 （ubuntu, kde, x-server, kubuntu, plasma, x-org）  这篇文章对你有帮助吗？首先，本文适用于使用 Xorg 图形服务的 Linux 系统，如果你不在使用 Xorg，那此文对你没有帮助。  目前 Gnome 默认使用 Wayland 而非 Xorg，因此默认配置的 Ubuntu 20.04~22.04 不适用。 目前 K">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/attachments/image-20221015174744154.png">
+<meta property="og:image" content="https://zjsheep.github.io/attachments/image-20221015174744154.png">
 <meta property="article:published_time" content="2023-06-29T03:04:02.000Z">
-<meta property="article:modified_time" content="2023-06-29T05:24:38.502Z">
+<meta property="article:modified_time" content="2023-06-29T09:57:16.590Z">
 <meta property="article:author" content="ZJsheep">
-<meta property="article:tag" content="linux kde xorg">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="kde">
+<meta property="article:tag" content="xorg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/attachments/image-20221015174744154.png">
+<meta name="twitter:image" content="https://zjsheep.github.io/attachments/image-20221015174744154.png">
   
   
   
@@ -71,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zjsheep.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -181,6 +183,18 @@
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
               </a>
             </li>
           
@@ -385,7 +399,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/linux-kde-xorg/">#linux kde xorg</a>
+        <a href="/tags/linux/">#linux</a>
+      
+        <a href="/tags/kde/">#kde</a>
+      
+        <a href="/tags/xorg/">#xorg</a>
       
     </div>
   
@@ -398,7 +416,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放</div>
-      <div>http://example.com/2023/06/29/Xorg-实现不重启调整缩放-多显示器不同缩放/</div>
+      <div>https://zjsheep.github.io/2023/06/29/Xorg-实现不重启调整缩放-多显示器不同缩放/</div>
     </div>
     <div class="license-meta">
       
