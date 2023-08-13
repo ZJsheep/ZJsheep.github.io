@@ -4,11 +4,49 @@
   
   
   <entry>
+    <title>一些神奇妙妙操作</title>
+    <link href="/2023/08/13/%E4%B8%80%E4%BA%9B%E7%A5%9E%E5%A5%87%E5%A6%99%E5%A6%99%E6%93%8D%E4%BD%9C/"/>
+    <url>/2023/08/13/%E4%B8%80%E4%BA%9B%E7%A5%9E%E5%A5%87%E5%A6%99%E5%A6%99%E6%93%8D%E4%BD%9C/</url>
+    
+    <content type="html"><![CDATA[<ul><li>Windows Powershell 的 Profile 地址：<a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.3">manual</a><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs awk">All Users, All Hosts<br>Windows - <span class="hljs-variable">$PSHOME</span>\Profile.ps1<br>Linux - <span class="hljs-regexp">/opt/mi</span>crosoft<span class="hljs-regexp">/powershell/</span><span class="hljs-number">7</span>/profile.ps1<br>macOS - <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/microsoft/</span>powershell<span class="hljs-regexp">/7/</span>profile.ps1<br>All Users, Current Host<br>Windows - <span class="hljs-variable">$PSHOME</span>\Microsoft.PowerShell_profile.ps1<br>Linux - <span class="hljs-regexp">/opt/mi</span>crosoft<span class="hljs-regexp">/powershell/</span><span class="hljs-number">7</span>/Microsoft.PowerShell_profile.ps1<br>macOS - <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/microsoft/</span>powershell<span class="hljs-regexp">/7/</span>Microsoft.PowerShell_profile.ps1<br>Current User, All Hosts<br>Windows - <span class="hljs-variable">$HOME</span>\Documents\PowerShell\Profile.ps1<br>Linux - ~<span class="hljs-regexp">/.config/</span>powershell/profile.ps1<br>macOS - ~<span class="hljs-regexp">/.config/</span>powershell/profile.ps1<br>Current user, Current Host<br>Windows - <span class="hljs-variable">$HOME</span>\Documents\PowerShell\Microsoft.PowerShell_profile.ps1<br>Linux - ~<span class="hljs-regexp">/.config/</span>powershell/Microsoft.PowerShell_profile.ps1<br>macOS - ~<span class="hljs-regexp">/.config/</span>powershell/Microsoft.PowerShell_profile.ps1<br></code></pre></td></tr></table></figure>Windows 上其实是第一个，展开是 C:\Windows\System32\WindowsPowerShell\v1.0</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>tool</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>一些有用的教程/文档</title>
+    <link href="/2023/08/02/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%99%E7%A8%8B-%E6%96%87%E6%A1%A3/"/>
+    <url>/2023/08/02/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%99%E7%A8%8B-%E6%96%87%E6%A1%A3/</url>
+    
+    <content type="html"><![CDATA[<p>这里会收录一些我在学习新框架、新语言、新工具等时所曾经参考过的高质量教程&#x2F;文档，以及一些踩坑时帮助我的帖子（主要是 StackOverflow），以供我自己以后查阅，也可供大家参考。</p><h2 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h2><p><a href="https://stackoverflow.com/questions/52764405/selenium-cant-find-elements-even-if-they-exist">Selenium can’t find elements even if they exist</a></p><h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><p><a href="https://data36.com/beautiful-soup-tutorial-web-scraping/">Beautiful Soup Tutorial 1. – An Introduction to Web Scraping with Python</a></p><p><a href="https://stackoverflow.com/questions/18725760/beautifulsoup-findall-given-multiple-classes">BeautifulSoup findAll() given multiple classes?</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>tool</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2023 CUHK CSE Early Admission 面经</title>
     <link href="/2023/07/12/2023-CUHK-CSE-Early-Admission-%E9%9D%A2%E7%BB%8F/"/>
     <url>/2023/07/12/2023-CUHK-CSE-Early-Admission-%E9%9D%A2%E7%BB%8F/</url>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这次</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>纯纯摸鱼，早茶不错。</p>]]></content>
     
     
     
@@ -29,7 +67,7 @@
     <link href="/2023/07/12/2023-NJU-AI-%E5%A4%8F%E4%BB%A4%E8%90%A5%E9%9D%A2%E7%BB%8F/"/>
     <url>/2023/07/12/2023-NJU-AI-%E5%A4%8F%E4%BB%A4%E8%90%A5%E9%9D%A2%E7%BB%8F/</url>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于鼠鼠比较低能，本科期间没有什么科研产出，只有两段本校的科研经历，因此保外校比较吃亏，夏令营的重心就放在本校的夏令营上。</p><h2 id="NJUAI-夏令营"><a href="#NJUAI-夏令营" class="headerlink" title="NJUAI 夏令营"></a>NJUAI 夏令营</h2><p>2023 年夏令营在 7 月 11~13 日，11 日面试，12 日笔试。</p><h3 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h3><p>面试主要问四个部分，一是简历上的项目经历，二是一些机器学习基础知识，三是一个英文口语问题，四是一个脑筋急转弯。面试有时间限制，时间到了后面的问题就不问了，因此最好能够尽快地回答问题。</p><p>简历问的很深，他并不是问你项目的细节，而是会基于你的研究领域问一些比较深的问题。例如我本科科研基本围绕演化算法展开，于是就被问到了为什么多目标优化适合用演化算法求解。当时完全没有准备，导致有点懵，只能胡乱扯一通，感觉答得不太好，最后时间到了老师直接让我不要说了。</p><p>机器学习知识部分集中在西瓜书上，我被问了 SVM，MDP，Adaboost 等，感觉如果复习充分的话应该问题不大（面 lamda 这不全文背诵西瓜书 doge）。不过专业知识这一块主要取决于你的背景和面你的老师。听说有计科的同学来面试被问了一通计网，还有好像偏理论的老师会问比较多的数学问题，尤其是凸优化相关的。</p><p>英文口语问题问的是你从你的研究经历中学到了什么，感觉对于几个常见场景（最喜欢的课、印象最深的经历啥的）稍微提前准备一下怎么说就行。</p><p>脑筋急转弯是说给你一个能等概率随机生成 1、2、3 的随机数生成器，如何用它等概率地生成 1 ~ 5 的随机数。当时比较紧张想了半天，直到最后一刻才极限回答😂。这个题应该是每个人都不一样，感觉也没法准备，看运气吧。</p><p>后面出来发现大家都没准备好被问简历，有些同学问题问的偏也没答好，脑筋急转弯也有很多同学没有答出来。感觉大家在面试这一块表现都差不多，运气成分比较多，如果正好问到了擅长的学科那一般没什么问题。以下是几个听来的题：</p><blockquote><p>决策树能不能视为一种 DP？<br>如何只循环一趟求出方差？（本校同学应该已经反应过来是哪个老师问的了 doge）</p></blockquote><h3 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h3><p>笔试相较去年形式有很大变化，有 10 个填空，14 个大题，内容涉及机器学习、数据结构、算法、概率论、知识表示与处理（NJUAI 特色课程，讲的是远古时代使用逻辑知识库实现人工智能的方法）。笔试的问题分布和 NJUAI 自家的课程重点重合度比较高，因此外校同学应该会有一点劣势（悲）。</p><p>下面是几个印象深刻的题（是我不太会的，不代表平均难度）：</p><ul><li>Adaboost 当误差 $\epsilon$ 为 0 时，继续训练为什么会性能继续提升？</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于<del>鼠鼠比较低能</del>，本科期间没有科研产出，只有两段本校的科研经历，因此保外校比较吃亏，夏令营的重心就放在本校的夏令营上。</p><h2 id="NJUAI-夏令营"><a href="#NJUAI-夏令营" class="headerlink" title="NJUAI 夏令营"></a>NJUAI 夏令营</h2><p>2023 年夏令营在 7 月 11~13 日，11 日面试，12 日笔试。</p><h3 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h3><p>面试问四个部分，一是简历上的项目经历，二是专业知识，三是英文口语问题，四是脑筋急转弯。</p><p>简历问的很深，没怎么问项目的细节，反而是基于研究领域问一些比较深的问题。例如我本科搞的演化算法，于是就被问到了为什么多目标优化适合用演化算法求解等。当时没有准备，只能乱扯一通，感觉答得不太好，最后时间到了老师直接让我不要说了。</p><p>机器学习知识部分集中在西瓜书上，我被问了 SVM，MDP，Adaboost，复习充分的话问题不大（面 lamda 这不全文背诵西瓜书 doge）。专业知识主要取决于你的背景和面你的老师。听说有计科的同学来面试被问了一通计网，还有偏理论的老师会问较多数学问题（老师长啥样和研究方向可以上 lamda 官网查看），尤其是凸优化相关。</p><p>之后交流得知其他组的同学有被问到有关决策树、方差的性质等问题。还有一个特点是老师喜欢将 ML 算法和原教旨算法结合起来问，比如如何从 DP 的视角看待一些 ML 算法。</p><p>英文口语问题问的是你从你的研究经历中学到了什么，这个问题因人而异，感觉临场发挥问题不大。</p><p>脑筋急转弯是一个关于如何生成随机数的题，有时间限制，如果前面答得快后面时间就会充裕一点。当时比较紧张，想了半天，直到最后一刻才极限回答（考后感觉十秒就能想出来了 x）。这个题也因人而异，感觉没法准备，要想准备的话只能建议考前烧高香（x）。</p><p>面完出来发现大家都没准备好被问简历（主要是往年面经好像都说不问简历），有些同学专业知识问得偏没答好，脑筋急转弯也有很多同学没有答出来。感觉大家表现都差不多，运气成分比较多，如果正好问到了擅长的课那一般没什么问题。</p><p>面试有录像，也会整体计时，一个人只有 12 min 左右，因此要注意言简意赅，答得越流畅能答的题就越多。</p><h3 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h3><p>今年笔试和机试是一起进行的，形式为在机房里发一张纸质笔试试卷和机试试题的 pdf，笔试在纸上写，机试电脑编程 OJ 提交。题目一起下发，一共 2.5h，时间自由分配。</p><p>笔试相较去年形式有很大变化，有 10 个填空，14 个大题，内容涉及机器学习、数据结构、算法、概率论、知识表示与处理（Knowledge Representation &amp; Processing，简称 KRP，是 NJUAI 特色课程，讲的是逻辑学派实现人工智能的方法）。</p><p>填空部分基本全是数据结构的考研题，我虽然学过这课但是印象有点淡，因此做的有点慢。</p><p>笔试部分先是几个数据结构的题（不难），然后是几个概率论的问答题（不需要计算，就是谈谈集中不等式的优劣势之类的），然后是几个有关 ML 算法的题（AIMA &amp; 西瓜书里的算法都有涉及），最后是 5 个英文的 KRP 题（不是很难，不需要很多的背景知识，即使没学过这个课耐心看一看题应该也能写出来一部分）。</p><p>整个试卷基本只有数据结构部分需要一些计算，其他部分题目都比较主观，要写字的题有点多。再加之题目是过量的，因此写字快的同学应该有优势（x）。</p><p>总体来讲，复习的宽度比深度更重要，数据结构和概率论的各种知识点建议全部要覆盖到，不需要去刷很难的题。</p><h3 id="机试"><a href="#机试" class="headerlink" title="机试"></a>机试</h3>]]></content>
     
     
     
