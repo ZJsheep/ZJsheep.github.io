@@ -23,11 +23,11 @@
   
   
   <entry>
-    <title>一些有用的教程/文档</title>
-    <link href="/2023/08/02/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%99%E7%A8%8B-%E6%96%87%E6%A1%A3/"/>
-    <url>/2023/08/02/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E6%95%99%E7%A8%8B-%E6%96%87%E6%A1%A3/</url>
+    <title>踩坑记录</title>
+    <link href="/2023/08/02/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"/>
+    <url>/2023/08/02/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</url>
     
-    <content type="html"><![CDATA[<p>这里会收录一些我在学习新框架、新语言、新工具等时所曾经参考过的高质量教程&#x2F;文档，以及一些踩坑时帮助我的帖子（主要是 StackOverflow），以供我自己以后查阅，也可供大家参考。</p><h2 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h2><p><a href="https://stackoverflow.com/questions/52764405/selenium-cant-find-elements-even-if-they-exist">Selenium can’t find elements even if they exist</a></p><h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><p><a href="https://data36.com/beautiful-soup-tutorial-web-scraping/">Beautiful Soup Tutorial 1. – An Introduction to Web Scraping with Python</a></p><p><a href="https://stackoverflow.com/questions/18725760/beautifulsoup-findall-given-multiple-classes">BeautifulSoup findAll() given multiple classes?</a></p>]]></content>
+    <content type="html"><![CDATA[<p>这里会收录一些我在学习新框架、新语言、新工具等时所曾经参考过的高质量教程&#x2F;文档，以及一些踩坑时帮助我的帖子（主要是 StackOverflow），以供我自己以后查阅，也可供大家参考。</p><h2 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h2><ul><li><p><a href="https://stackoverflow.com/questions/52764405/selenium-cant-find-elements-even-if-they-exist">Selenium can’t find elements even if they exist</a> 可能是要切换 iframe。</p></li><li><p>selenium 检查元素是否存在可以使用 find_elements，判断返回列表的 len 是否大于 0。如果直接调用 find_element 会返回 Exception。</p></li><li><p>selenium 默认的等待时间是通过 driver.implicitly_wait 设置的，这个函数并不是在当前位置等一会，而是一个全局的设置</p></li></ul><h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><ul><li><p><a href="https://data36.com/beautiful-soup-tutorial-web-scraping/">Beautiful Soup Tutorial 1. – An Introduction to Web Scraping with Python</a></p></li><li><p><a href="https://stackoverflow.com/questions/18725760/beautifulsoup-findall-given-multiple-classes">BeautifulSoup findAll() given multiple classes?</a></p></li></ul>]]></content>
     
     
     
