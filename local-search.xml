@@ -4,7 +4,7 @@
   
   
   <entry>
-    <title>黑夜问白天：从混沌到清澈的痛苦蜕生</title>
+    <title>【感悟】黑夜问白天：从混沌到清澈的痛苦蜕生</title>
     <link href="/2024/03/04/%E9%BB%91%E5%A4%9C%E9%97%AE%E7%99%BD%E5%A4%A9%EF%BC%9A%E4%BB%8E%E6%B7%B7%E6%B2%8C%E5%88%B0%E6%B8%85%E6%BE%88%E7%9A%84%E7%97%9B%E8%8B%A6%E8%9C%95%E7%94%9F/"/>
     <url>/2024/03/04/%E9%BB%91%E5%A4%9C%E9%97%AE%E7%99%BD%E5%A4%A9%EF%BC%9A%E4%BB%8E%E6%B7%B7%E6%B2%8C%E5%88%B0%E6%B8%85%E6%BE%88%E7%9A%84%E7%97%9B%E8%8B%A6%E8%9C%95%E7%94%9F/</url>
     
@@ -12,16 +12,22 @@
     
     
     
+    <tags>
+      
+      <tag>音乐</tag>
+      
+    </tags>
+    
   </entry>
   
   
   
   <entry>
-    <title>踩坑记录</title>
+    <title>【技术】踩坑记录</title>
     <link href="/2023/08/02/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"/>
     <url>/2023/08/02/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</url>
     
-    <content type="html"><![CDATA[<p>这里会收录一些我在学习新框架、新语言、新工具等时所曾经参考过的高质量教程&#x2F;文档，以及一些踩坑时帮助我的帖子（主要是 StackOverflow），以供我自己以后查阅，也可供大家参考。</p><h2 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h2><ul><li><p><a href="https://stackoverflow.com/questions/52764405/selenium-cant-find-elements-even-if-they-exist">Selenium can’t find elements even if they exist</a> 可能是要切换 iframe。</p></li><li><p>selenium 检查元素是否存在可以使用 find_elements，判断返回列表的 len 是否大于 0。如果直接调用 find_element 会返回 Exception。</p></li><li><p>selenium 默认的等待时间是通过 driver.implicitly_wait 设置的，这个函数并不是在当前位置等一会，而是一个全局的设置</p></li></ul><h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><ul><li><p><a href="https://data36.com/beautiful-soup-tutorial-web-scraping/">Beautiful Soup Tutorial 1. – An Introduction to Web Scraping with Python</a></p></li><li><p><a href="https://stackoverflow.com/questions/18725760/beautifulsoup-findall-given-multiple-classes">BeautifulSoup findAll() given multiple classes?</a></p></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>这里会收录一些我在学习新框架、新语言、新工具等时所曾经参考过的高质量教程&#x2F;文档、帮助过我的帖子、以及我自己的解决方法，以供我自己以后查阅，也可供大家参考。</p><h2 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h2><ul><li><a href="https://stackoverflow.com/questions/52764405/selenium-cant-find-elements-even-if-they-exist">Selenium can&#39;t find elements even if they exist</a> 可能是要切换 iframe。</li><li>selenium 检查元素是否存在可以使用 find_elements，判断返回列表的 len 是否大于 0。如果直接调用 find_element 会返回 Exception。</li><li>selenium 默认的等待时间是通过 driver.implicitly_wait 设置的，这个函数并不是在当前位置等一会，而是一个全局的设置</li></ul><h2 id="BeautifulSoup"><a href="#BeautifulSoup" class="headerlink" title="BeautifulSoup"></a>BeautifulSoup</h2><ul><li><a href="https://data36.com/beautiful-soup-tutorial-web-scraping/">Beautiful Soup Tutorial 1. – An Introduction to Web Scraping with Python</a></li><li><a href="https://stackoverflow.com/questions/18725760/beautifulsoup-findall-given-multiple-classes">BeautifulSoup findAll() given multiple classes?</a></li></ul><h2 id="Powershell-Profile-路径"><a href="#Powershell-Profile-路径" class="headerlink" title="Powershell Profile 路径"></a>Powershell Profile 路径</h2><p>Windows Powershell 的 Profile 地址：<a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.3">manual</a></p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs awk">All Users, All Hosts<br>Windows - <span class="hljs-variable">$PSHOME</span>\Profile.ps1<br>Linux - <span class="hljs-regexp">/opt/mi</span>crosoft<span class="hljs-regexp">/powershell/</span><span class="hljs-number">7</span>/profile.ps1<br>macOS - <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/microsoft/</span>powershell<span class="hljs-regexp">/7/</span>profile.ps1<br>All Users, Current Host<br>Windows - <span class="hljs-variable">$PSHOME</span>\Microsoft.PowerShell_profile.ps1<br>Linux - <span class="hljs-regexp">/opt/mi</span>crosoft<span class="hljs-regexp">/powershell/</span><span class="hljs-number">7</span>/Microsoft.PowerShell_profile.ps1<br>macOS - <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/microsoft/</span>powershell<span class="hljs-regexp">/7/</span>Microsoft.PowerShell_profile.ps1<br>Current User, All Hosts<br>Windows - <span class="hljs-variable">$HOME</span>\Documents\PowerShell\Profile.ps1<br>Linux - ~<span class="hljs-regexp">/.config/</span>powershell/profile.ps1<br>macOS - ~<span class="hljs-regexp">/.config/</span>powershell/profile.ps1<br>Current user, Current Host<br>Windows - <span class="hljs-variable">$HOME</span>\Documents\PowerShell\Microsoft.PowerShell_profile.ps1<br>Linux - ~<span class="hljs-regexp">/.config/</span>powershell/Microsoft.PowerShell_profile.ps1<br>macOS - ~<span class="hljs-regexp">/.config/</span>powershell/Microsoft.PowerShell_profile.ps1<br></code></pre></td></tr></table></figure><p>我笔记本用的是第一个（好像不太好），展开是 C:\Windows\System32\WindowsPowerShell\v1.0，<br>win 11 是 $HOME\Documents\WindowsPowerShell</p><h2 id="iTunes-手机备份路径"><a href="#iTunes-手机备份路径" class="headerlink" title="iTunes 手机备份路径"></a>iTunes 手机备份路径</h2><p>Windows 下 iTunes 自动备份的地址：</p><ul><li>如果是 MicroSoft Store 下的（My Case）在 <code>%USERPROFILE%/Apple/MobileSync</code></li><li>如果是直接装的在 <code>%appdata%/Apple/MobileSync</code></li><li>以上 Apple 也可能被替换为 Apple Computer</li></ul>]]></content>
     
     
     
@@ -36,11 +42,11 @@
   
   
   <entry>
-    <title>2023 CUHK CSE Early Admission 面经</title>
+    <title>【面经】2023 CUHK CSE Early Admission 面经</title>
     <link href="/2023/07/12/2023-CUHK-CSE-Early-Admission-%E9%9D%A2%E7%BB%8F/"/>
     <url>/2023/07/12/2023-CUHK-CSE-Early-Admission-%E9%9D%A2%E7%BB%8F/</url>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>其实我去 CUHK 之前没有联系到老师，无果酱无科研经历，抱着摸奖心态填了一下系统没想到过了，一方面想着去深圳玩，一方面室友联系好了老师一直怂恿我陪他去，于是就欣然前往二日游。</p><h2 id="吃喝玩乐"><a href="#吃喝玩乐" class="headerlink" title="吃喝玩乐"></a>吃喝玩乐</h2><p>别的不说，去深圳两顿饭让我印象深刻，就冲这两顿饭就属于不虚此行。</p><ul><li>深圳的茶餐厅真心不错，虽然是晚饭去吃的。虾饺里面居然真的这么大一只新鲜的虾，真的震撼我。别的肠粉等经典早茶也非常合我口味。</li><li>潮汕牛肉火锅也是一绝，我们是在一个街边小馆子吃的，极为新鲜的牛肉，直接水煮不沾火锅料都非常鲜美，而且非常便宜，我和同学两个人吃了四五盘吃到有点撑一看才花了 50，这价格在南京怕不是只能买一小盘。</li></ul><p>在出行方式方面，Early Admission 通常在 6 月，正好是深圳雨季，经常有暴雨导致飞机延误，稳妥起见建议选择高铁。</p><h2 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h2><p>笔试全英文，包括选择题和两道大题，如果不卡壳写完时间正好差不多，还是有点紧张的。</p><ul><li>选择题题目还是很简单的，我想如果在 985 的 CS 专业通过了所有专业课期末考试的话问题不大。比较奇葩的是考了很多 OS 题，什么系统调用啥的，本鼠鼠本科是 AI 的，对这些只有浅薄的记忆，没想到还派上了用场。</li><li>大题第一题是一个离散数学的证明题，具体有点忘，用了余数的性质（就是类似于同余什么的，反正差不多说出这个意思就行），不难。</li><li>大题第二题是要求在一个列单调递增、行单调递增的二维数组里找到第 k 大元素。这题其实很经典，因为遍历过去几年 CUHK 考试题好像经常考无序数组找 top k 问题，这次算是 plus 版。这题正解应该是魔改 Dijkstra 算法，如果之前看多了之前面经陷入一维 top k 的思维定势反而说不定想不到（例如我，卡了 15 min）。</li></ul><h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>面试也是全英文，主要问考试错题，所以中午赶紧对答案。如果错的太少可能会聊别的，比如你的科研兴趣、对科研的看法和规划等。</p><h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>没后续了，联系了几个老师都没有回应。其实另一方面是因为我本校拿了 offer，对 CUHK 不是很上心。建议大家不要学我，有机会还是要多去尝试。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>其实我去 CUHK 之前没有联系到老师，无果酱无科研经历，抱着摸奖心态填了一下系统没想到过了，一方面想着去深圳玩，一方面室友联系好了老师一直怂恿我陪他去，于是就欣然前往二日游。</p><h2 id="吃喝玩乐"><a href="#吃喝玩乐" class="headerlink" title="吃喝玩乐"></a>吃喝玩乐</h2><p>别的不说，去深圳两顿饭让我印象深刻，就冲这两顿饭就属于不虚此行。</p><ul><li>深圳的茶餐厅真心不错，虽然是晚饭去吃的。虾饺里面居然真的这么大一只新鲜的虾，真的震撼我。别的肠粉等经典早茶也非常合我口味。</li><li>潮汕牛肉火锅也是一绝，我们是在一个街边小馆子吃的，极为新鲜的牛肉，直接水煮不沾火锅料都非常鲜美，而且非常便宜，我和同学两个人吃了四五盘吃到有点撑一看才花了 50，这价格在南京怕不是只能买一小盘。</li></ul><p>在出行方式方面，Early Admission 通常在 6 月，正好是深圳雨季，经常有暴雨导致飞机延误，稳妥起见建议选择高铁。</p><h2 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h2><p>笔试全英文，包括选择题和两道大题，如果不卡壳写完时间正好差不多，还是有点紧张的。</p><ul><li>选择题题目还是很简单的，我想如果在 985 的 CS 专业通过了所有专业课期末考试的话问题不大。比较奇葩的是考了很多 OS 题，什么系统调用啥的，本鼠鼠本科是 AI 的，对这些只有浅薄的记忆，没想到还派上了用场。</li><li>大题第一题是一个离散数学的证明题，具体有点忘，用了余数的性质（就是类似于同余什么的，反正差不多说出这个意思就行），不难。</li><li>大题第二题是我感觉唯一有一点挑战性的题，要求在一个列单调递增、行单调递增的 n*n 二维数组里找到第 k 大元素。这题其实很经典，因为过去几年 CUHK 考试题好像经常考无序数组找 top k 问题，这次算是 plus 版。这题正解应该是魔改 Dijkstra 算法，如果之前看多了之前面经陷入一维 top k 的思维定势反而说不定想不到（例如我，卡了 15 min）。</li></ul><h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>面试也是全英文，主要问考试错题，所以中午赶紧对答案。如果错的太少可能会聊别的，比如你的科研兴趣、对科研的看法和规划等。</p><h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>没后续了，联系了几个老师都没有回应。其实另一方面是因为我本校拿了 offer，对 CUHK 不是很上心。建议大家不要学我，有机会还是要多去尝试。</p>]]></content>
     
     
     
@@ -57,7 +63,7 @@
   
   
   <entry>
-    <title>2023 NJU AI 夏令营面经</title>
+    <title>【面经】2023 NJU AI 夏令营面经</title>
     <link href="/2023/07/12/2023-NJU-AI-%E5%A4%8F%E4%BB%A4%E8%90%A5%E9%9D%A2%E7%BB%8F/"/>
     <url>/2023/07/12/2023-NJU-AI-%E5%A4%8F%E4%BB%A4%E8%90%A5%E9%9D%A2%E7%BB%8F/</url>
     
@@ -78,7 +84,7 @@
   
   
   <entry>
-    <title>人类早期驯服野生 KDE 珍贵记录</title>
+    <title>【技术】人类早期驯服野生 KDE 珍贵记录</title>
     <link href="/2023/06/29/%E4%BA%BA%E7%B1%BB%E6%97%A9%E6%9C%9F%E9%A9%AF%E6%9C%8D%E9%87%8E%E7%94%9F-KDE-%E7%8F%8D%E8%B4%B5%E8%AE%B0%E5%BD%95/"/>
     <url>/2023/06/29/%E4%BA%BA%E7%B1%BB%E6%97%A9%E6%9C%9F%E9%A9%AF%E6%9C%8D%E9%87%8E%E7%94%9F-KDE-%E7%8F%8D%E8%B4%B5%E8%AE%B0%E5%BD%95/</url>
     
@@ -99,7 +105,7 @@
   
   
   <entry>
-    <title>Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放</title>
+    <title>【技术】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放</title>
     <link href="/2023/06/29/Xorg-%E5%AE%9E%E7%8E%B0%E4%B8%8D%E9%87%8D%E5%90%AF%E8%B0%83%E6%95%B4%E7%BC%A9%E6%94%BE-%E5%A4%9A%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%8D%E5%90%8C%E7%BC%A9%E6%94%BE/"/>
     <url>/2023/06/29/Xorg-%E5%AE%9E%E7%8E%B0%E4%B8%8D%E9%87%8D%E5%90%AF%E8%B0%83%E6%95%B4%E7%BC%A9%E6%94%BE-%E5%A4%9A%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%8D%E5%90%8C%E7%BC%A9%E6%94%BE/</url>
     
@@ -122,7 +128,7 @@
   
   
   <entry>
-    <title>helloworld</title>
+    <title>【系统】helloworld</title>
     <link href="/2023/06/28/helloworld/"/>
     <url>/2023/06/28/helloworld/</url>
     
