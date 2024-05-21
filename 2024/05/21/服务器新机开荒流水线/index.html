@@ -19,14 +19,15 @@
     <meta name="description" content="以下是本人对服务器新机用的比较舒服的一套配置，并不是最优解，仅供参考。如果对 Linux 和 ssh 操作不熟悉，建议去阅读详细讲解的教程，而不是看这个经验帖。 本地 ssh 配置加下面这项 123Host &lt;alias&gt;  HostName &lt;IP&gt;  User &lt;username&gt;  注意 Host Alias 是大小写敏感的。 ssh-copy-id如果本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【技术】服务器新机开荒流水线">
-<meta property="og:url" content="https://zjsheep.github.io/2024/05/21/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%B0%E6%9C%BA%E5%BC%80%E8%8D%92%E6%B5%81%E6%B0%B4%E7%BA%BF/index.html">
+<meta property="og:url" content="https://zhoujy.com/2024/05/21/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%B0%E6%9C%BA%E5%BC%80%E8%8D%92%E6%B5%81%E6%B0%B4%E7%BA%BF/index.html">
 <meta property="og:site_name" content="ZJsheep&#39;s Dream">
 <meta property="og:description" content="以下是本人对服务器新机用的比较舒服的一套配置，并不是最优解，仅供参考。如果对 Linux 和 ssh 操作不熟悉，建议去阅读详细讲解的教程，而不是看这个经验帖。 本地 ssh 配置加下面这项 123Host &lt;alias&gt;  HostName &lt;IP&gt;  User &lt;username&gt;  注意 Host Alias 是大小写敏感的。 ssh-copy-id如果本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-21T06:05:01.000Z">
-<meta property="article:modified_time" content="2024-05-21T06:12:58.956Z">
+<meta property="article:modified_time" content="2024-05-21T06:19:40.642Z">
 <meta property="article:author" content="ZJsheep">
 <meta property="article:tag" content="tool">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -69,7 +70,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zjsheep.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhoujy.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -247,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          1.1k 字
         
       </span>
     
@@ -328,7 +329,7 @@
 <p>如果没装 <code>ssh-copy-id</code> 或者是 Windows，则</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> ~/.ssh/id_rsa.pub | ssh &lt;<span class="hljs-built_in">alias</span>&gt; <span class="hljs-string">&quot;cat &gt;&gt; ~/.ssh/authorized_keys&quot;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="tmux-配置"><a href="#tmux-配置" class="headerlink" title="tmux 配置"></a>tmux 配置</h2><p><code>cat</code> 以下内容进 <code>~/.tmux.conf</code>：</p>
+<h2 id="tmux-配置"><a href="#tmux-配置" class="headerlink" title="tmux 配置"></a>tmux 配置</h2><p><code>cat</code> 以下内容进 <code>~/.tmux.conf</code>。注意改了以后 tmux 前缀会变成 Ctrl A，这也是为了和本地的 tmux 区分。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># in case the terminal does not display color</span><br><span class="hljs-built_in">set</span> -g default-terminal <span class="hljs-string">&quot;screen-256color&quot;</span><br><br><span class="hljs-comment"># Send prefix</span><br>set-option -g prefix C-a<br>unbind-key C-a<br>bind-key C-a send-prefix<br><br><span class="hljs-comment"># Use Alt-arrow keys to switch panes</span><br><span class="hljs-built_in">bind</span> -n M-Left select-pane -L<br><span class="hljs-built_in">bind</span> -n M-Right select-pane -R<br><span class="hljs-built_in">bind</span> -n M-Up select-pane -U<br><span class="hljs-built_in">bind</span> -n M-Down select-pane -D<br><br><span class="hljs-comment"># Shift arrow to switch windows</span><br><span class="hljs-built_in">bind</span> -n S-Left previous-window<br><span class="hljs-built_in">bind</span> -n S-Right next-window<br><br><span class="hljs-comment"># Mouse mode</span><br><span class="hljs-built_in">set</span> -g mouse on<br><br><span class="hljs-comment"># Set easier window split keys</span><br>bind-key v split-window -h<br>bind-key h split-window -v<br><br><span class="hljs-comment"># Easy config reload</span><br>bind-key r source-file ~/.tmux.conf \; display-message <span class="hljs-string">&quot;tmux.conf reloaded&quot;</span><br><br><span class="hljs-comment"># set more history</span><br>set-option -g history-limit 10000<br></code></pre></td></tr></table></figure>
 
                 
@@ -344,6 +345,8 @@
       
         <a href="/tags/tool/">#tool</a>
       
+        <a href="/tags/linux/">#linux</a>
+      
     </div>
   
 </div>
@@ -355,7 +358,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>【技术】服务器新机开荒流水线</div>
-      <div>https://zjsheep.github.io/2024/05/21/服务器新机开荒流水线/</div>
+      <div>https://zhoujy.com/2024/05/21/服务器新机开荒流水线/</div>
     </div>
     <div class="license-meta">
       
