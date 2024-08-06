@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="ZJsheep&#39;s Dream">
 <meta property="og:description" content="为了帮助搜索，这里加点 tag。 （ubuntu, kde, x-server, kubuntu, plasma, x-org）  这篇文章对你有帮助吗？首先，本文适用于使用 Xorg 图形服务的 Linux 系统，如果你不在使用 Xorg，那此文对你没有帮助。  目前 Gnome 默认使用 Wayland 而非 Xorg，因此默认配置的 Ubuntu 20.04~22.04 不适用。 目前 K">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zhoujy.com/attachments/image-20221015174744154.png">
+<meta property="og:image" content="https://zhoujy.com/assets/xrandr1.png">
 <meta property="article:published_time" content="2023-06-29T03:04:02.000Z">
-<meta property="article:modified_time" content="2024-03-05T16:50:39.448Z">
+<meta property="article:modified_time" content="2024-08-06T04:15:51.073Z">
 <meta property="article:author" content="ZJsheep">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="kde">
 <meta property="article:tag" content="xorg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://zhoujy.com/attachments/image-20221015174744154.png">
+<meta name="twitter:image" content="https://zhoujy.com/assets/xrandr1.png">
   
   
   
@@ -339,24 +339,24 @@
 </ul>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本人的需求是这样的，我有一台 14 英寸分辨率为 2160x1440 的笔记本，日常缩放为 175%，在宿舍里有一台 23.8 英寸分辨率为 2560x1440 的显示器，日常缩放为 150%，回宿舍就用显示器看。然而在使用 Xorg 的 Kubuntu 下，每次回宿舍或者出门都要调缩放、重启，实在是不够完美。经过 stfw，我摸索出了一个不重启调整缩放的 workaround，这个方法同时也能实现多屏幕不同缩放比。</p>
 <p>我的想法是让全局缩放一直开在 175%，也就是比较高的一档，然后通过渲染出超分辨率的画面再缩小到显示器上，就可以实现降低全局缩放的效果。先贴一下效果图，我的显示器分辨率为 2560x1440，这里 Resolution 显示的是 2816x1584，说明已经完成了显示缩小。</p>
-<p><img src="/attachments/image-20221015174744154.png" srcset="/img/loading.gif" lazyload alt="image-20221015174744154"></p>
+<p><img src="/assets/xrandr1.png" srcset="/img/loading.gif" lazyload alt="效果展示"></p>
 <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>首先，直接运行 <code>xrandr</code> 命令，可以看到目前有哪几个显示器以及它们的名字。输出应该类似于</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Screen</span> <span class="hljs-number">0</span>: minimum <span class="hljs-number">320</span> x <span class="hljs-number">200</span>, current <span class="hljs-number">4080</span> x <span class="hljs-number">1440</span>, maximum <span class="hljs-number">8192</span> x <span class="hljs-number">8192</span><br><span class="hljs-attribute">eDP</span>-<span class="hljs-number">1</span> connected primary <span class="hljs-number">2160</span>x1440+<span class="hljs-number">0</span>+<span class="hljs-number">0</span> (normal left inverted right x axis y axis) <span class="hljs-number">275</span>mm x <span class="hljs-number">183</span>mm<br>   <span class="hljs-attribute">2160x1440</span>     <span class="hljs-number">60</span>.<span class="hljs-number">00</span>*+<br> <br><span class="hljs-attribute">DP</span>-<span class="hljs-number">1</span> connected <span class="hljs-number">1920</span>x1080+<span class="hljs-number">2160</span>+<span class="hljs-number">0</span> (normal left inverted right x axis y axis) <span class="hljs-number">521</span>mm x <span class="hljs-number">293</span>mm<br>   <span class="hljs-attribute">1920x1080</span>     <span class="hljs-number">60</span>.<span class="hljs-number">00</span>*+  <span class="hljs-number">50</span>.<span class="hljs-number">00</span>    <span class="hljs-number">59</span>.<span class="hljs-number">94</span>  <br></code></pre></td></tr></table></figure>
 
 <p>接下来讲一下 xrandr 工具用得到的各个选项的含义和使用方法。以下中括号表示需要代入具体内容，实际敲的时候不需要写中括号。</p>
 <ul>
-<li>–fb [A]x[B]：指定画布大小为 A 像素长乘 B 像素宽。注意中间是小写字母 x，下同。</li>
-<li>–output [A]：后续的选项对显示器 A 生效。<ul>
+<li><code>--fb [A]x[B]</code>：指定画布大小为 A 像素长乘 B 像素宽。注意中间是小写字母 x，下同。</li>
+<li><code>--output [A]</code>：后续的选项对显示器 A 生效。<ul>
 <li>显示器的名称可以通过上面说的方法，即直接执行 <code>xrandr</code> 看到</li>
 </ul>
 </li>
-<li>–mode [A]x[B]：指定当前显示器输出分辨率为 A 乘 B。</li>
-<li>–scale [A]x[B]：指定当前显示器在长上<strong>缩小</strong> A 倍，在宽上<strong>缩小</strong> B 倍，因此 A &gt; 1 表示缩小。</li>
-<li>–pos [A]x[B]：指定当前显示器在画布上的位置。具体来说就是显示器应该显示的区域的左上角在画布上的坐标。<ul>
+<li><code>--mode [A]x[B]</code>：指定当前显示器输出分辨率为 A 乘 B。</li>
+<li><code>--scale [A]x[B]</code>：指定当前显示器在长上<strong>缩小</strong> A 倍，在宽上<strong>缩小</strong> B 倍，因此 A &gt; 1 表示缩小。</li>
+<li><code>--pos [A]x[B]</code>：指定当前显示器在画布上的位置。具体来说就是显示器应该显示的区域的左上角在画布上的坐标。<ul>
 <li>坐标原点为左上角，单位为像素</li>
 </ul>
 </li>
-<li>–panning [A]x[B]+[C]+[D]：设定当前显示器可点击区域为左上角坐标为 (C 像素, D 像素)，长为 A 像素，宽为 B 像素的矩形。所谓可点击区域，就是说在画布上的这一块区域是实际显示内容、可以点击的。</li>
+<li><code>--panning [A]x[B]+[C]+[D]</code>：设定当前显示器可点击区域为左上角坐标为 (C 像素, D 像素)，长为 A 像素，宽为 B 像素的矩形。所谓可点击区域，就是说在画布上的这一块区域是实际显示内容、可以点击的。</li>
 </ul>
 <p>上面这部分内容可以和 xrandr 的 manpage 结合起来看，毕竟我复述的肯定不如官方文档全。我们的原理是先使用 –fb 选项渲染出一个超分辨率的画布，然后使用 –scale 选项缩小它的大小，并且使用 –pos 选项指定屏幕显示画布那一块被缩小了的部分。</p>
 <h3 id="单显示器"><a href="#单显示器" class="headerlink" title="单显示器"></a>单显示器</h3><p>结合上面所说的，不重启实现单显示器缩放命令形式应该类似于</p>
@@ -373,7 +373,7 @@
 <h3 id="多显示器"><a href="#多显示器" class="headerlink" title="多显示器"></a>多显示器</h3><p>多显示器不同分辨率拼接的命令形式应该为</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xrandr --fb [C*E+A]x[D*F] --output [display1] --auto --output [display2] --mode [C]x[D] --panning [C*E]x[D*F]+[A]+0 --scale [E]x[F] --right-of [display1]<br></code></pre></td></tr></table></figure>
 
-<p>举个例子，这里参考了 <a href="%5Bhttps://nmgit.net/2020/139/">Barry 的笔记</a>。有一个物理分辨率为 2160x1440 的笔记本屏幕 eDP-1（这分辨率一眼 matebook），一个物理分辨率为 1920x1080 的显示器 DP-1 需要拼接在笔记本屏幕右侧，内容相较于笔记本屏幕需要缩小 1.5 倍。</p>
+<p>举个例子，这里参考了 <a target="_blank" rel="noopener" href="https://nmgit.net/2020/139/">Barry 的笔记</a>。有一个物理分辨率为 2160x1440 的笔记本屏幕 eDP-1（这分辨率一眼 matebook），一个物理分辨率为 1920x1080 的显示器 DP-1 需要拼接在笔记本屏幕右侧，内容相较于笔记本屏幕需要缩小 1.5 倍。</p>
 <p>由于是横向排布，整个画布的长应该为 1920*1.5 + 2160 &#x3D; 5040，宽为 max{1080*1.5, 1440} &#x3D; 1620。笔记本屏幕的位置应为 0x0，显示器的左上角位置为 2160*0。笔记本可点击区域直接使用默认设置，显示器的可点击区域为左上角为 2160*0，大小为 2880*1620 的矩形。因此，命令行为</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xrandr --dpi 200 --fb 5040x1620 --output eDP-1 --mode 2160x1440 --pos 0x0 --output DP-1 --scale 1.5x1.5 --pos 2160x0 --panning 2880x1620+2160+0<br></code></pre></td></tr></table></figure>
 
