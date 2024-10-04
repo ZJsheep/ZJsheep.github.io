@@ -16,23 +16,26 @@
   <meta name="author" content="ZJsheep">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言由于鼠鼠比较低能，本科期间没有科研产出，只有两段本校的科研经历，因此保外校比较吃亏，夏令营的重心就放在本校的夏令营上。2023 年夏令营在 7 月 11~13 日，11 日面试，12 日笔试。 面试面试问四个部分，一是简历上的项目经历，二是专业知识，三是英文口语问题，四是脑筋急转弯。  简历问的很深，没怎么问项目的细节，反而是基于研究领域问一些比较深的问题。例如我项目涉及到一些演化算法，于是就">
+    <meta name="description" content="为了帮助搜索，这里加点 tag。 （ubuntu, kde, x-server, kubuntu, plasma, x-org）  这篇文章对你有帮助吗？首先，本文适用于使用 Xorg 图形服务的 Linux 系统，如果你不在使用 Xorg，那此文对你没有帮助。  目前 Gnome 默认使用 Wayland 而非 Xorg，因此默认配置的 Ubuntu 20.04~22.04 不适用。 目前 K">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【面经】2023 NJU AI 夏令营面经">
-<meta property="og:url" content="http://zhoujy.com/2023/07/12/2023-NJU-AI-%E5%A4%8F%E4%BB%A4%E8%90%A5%E9%9D%A2%E7%BB%8F/index.html">
+<meta property="og:title" content="【技术】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放">
+<meta property="og:url" content="http://zhoujy.com/2023/06/29/%E6%8A%80%E6%9C%AF/xorg-scaling/index.html">
 <meta property="og:site_name" content="ZJsheep&#39;s Dream">
-<meta property="og:description" content="前言由于鼠鼠比较低能，本科期间没有科研产出，只有两段本校的科研经历，因此保外校比较吃亏，夏令营的重心就放在本校的夏令营上。2023 年夏令营在 7 月 11~13 日，11 日面试，12 日笔试。 面试面试问四个部分，一是简历上的项目经历，二是专业知识，三是英文口语问题，四是脑筋急转弯。  简历问的很深，没怎么问项目的细节，反而是基于研究领域问一些比较深的问题。例如我项目涉及到一些演化算法，于是就">
+<meta property="og:description" content="为了帮助搜索，这里加点 tag。 （ubuntu, kde, x-server, kubuntu, plasma, x-org）  这篇文章对你有帮助吗？首先，本文适用于使用 Xorg 图形服务的 Linux 系统，如果你不在使用 Xorg，那此文对你没有帮助。  目前 Gnome 默认使用 Wayland 而非 Xorg，因此默认配置的 Ubuntu 20.04~22.04 不适用。 目前 K">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-12T05:22:03.000Z">
-<meta property="article:modified_time" content="2024-03-05T16:50:26.942Z">
+<meta property="og:image" content="http://zhoujy.com/assets/xrandr1.png">
+<meta property="article:published_time" content="2023-06-29T03:04:02.000Z">
+<meta property="article:modified_time" content="2024-09-04T03:01:41.908Z">
 <meta property="article:author" content="ZJsheep">
-<meta property="article:tag" content="面经">
-<meta property="article:tag" content="NJUAI">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="kde">
+<meta property="article:tag" content="xorg">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://zhoujy.com/assets/xrandr1.png">
   
   
   
-  <title>【面经】2023 NJU AI 夏令营面经 - ZJsheep&#39;s Dream</title>
+  <title>【技术】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放 - ZJsheep&#39;s Dream</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -225,7 +228,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">【面经】2023 NJU AI 夏令营面经</span>
+            <span id="subtitle">【技术】Xorg 实现不重启调整缩放 & 多显示器不同缩放</span>
           
         </div>
 
@@ -236,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-12 13:22" pubdate>
-          2023年7月12日 下午
+        <time datetime="2023-06-29 11:04" pubdate>
+          2023年6月29日 上午
         </time>
       </span>
     
@@ -248,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          3.2k 字
         
       </span>
     
@@ -259,7 +262,7 @@
         
         
         
-          18 分钟
+          27 分钟
         
       </span>
     
@@ -310,42 +313,80 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【面经】2023 NJU AI 夏令营面经</h1>
+            <h1 style="display: none">【技术】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于<del>鼠鼠比较低能</del>，本科期间没有科研产出，只有两段本校的科研经历，因此保外校比较吃亏，夏令营的重心就放在本校的夏令营上。2023 年夏令营在 7 月 11~13 日，11 日面试，12 日笔试。</p>
-<h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>面试问四个部分，一是简历上的项目经历，二是专业知识，三是英文口语问题，四是脑筋急转弯。</p>
+                <blockquote>
+<p>为了帮助搜索，这里加点 tag。</p>
+<p>（ubuntu, kde, x-server, kubuntu, plasma, x-org）</p>
+</blockquote>
+<h2 id="这篇文章对你有帮助吗？"><a href="#这篇文章对你有帮助吗？" class="headerlink" title="这篇文章对你有帮助吗？"></a>这篇文章对你有帮助吗？</h2><p>首先，本文适用于使用 Xorg 图形服务的 Linux 系统，如果你不在使用 Xorg，那此文对你没有帮助。</p>
 <ul>
-<li>简历问的很深，没怎么问项目的细节，反而是基于研究领域问一些比较深的问题。例如我项目涉及到一些演化算法，于是就被问到了为什么多目标优化适合用演化算法求解等。当时没有准备，只能乱扯一通。</li>
-<li>机器学习知识部分集中在西瓜书，我被问了 SVM，MDP，Adaboost 等，复习充分的话问题不大（面 LAMDA 这不全文背诵西瓜书）。专业知识主要取决于你的背景和面你的老师。听说有计科的同学来面试被问了一通计网，偏理论的老师会问较多数学问题（老师长啥样和研究方向可以上 LAMDA 官网查看），尤其是凸优化相关。之后交流得知其他组的同学有被问到有关决策树、方差的性质等问题。还有一个特点是老师喜欢将 ML 算法和原教旨算法结合起来问，比如如何从 DP 的视角看待一些 ML 算法。</li>
-<li>英文口语问题问的是你从你的研究经历中学到了什么，这个问题因人而异，临场发挥问题不大。</li>
-<li>脑筋急转弯是一个关于如何生成随机数的题，有时间限制，如果前面答得快后面时间就会充裕一点。当时比较紧张，想了半天，直到最后一刻才极限回答（考后感觉十秒就能想出来了 x）。这个题也因人而异，感觉没法准备，要想准备的话只能建议考前烧高香（x）。</li>
+<li>目前 Gnome 默认使用 Wayland 而非 Xorg，因此默认配置的 Ubuntu 20.04~22.04 不适用。</li>
+<li>目前 KDE 默认采用 Xorg，因此默认配置的 Kubuntu 仍然适用（我就在用 Kubuntu 22.04）。</li>
+<li>其余系统请自行百度如何查询图形服务为 Xorg 还是 Wayland。</li>
 </ul>
-<p>面完出来发现大家都没准备好被问简历（主要是往年面经好像都说不问简历），有些同学专业知识问得偏没答好，脑筋急转弯也有很多同学没有答出来。感觉大家表现都差不多，运气成分比较多，如果正好问到了擅长的课那一般没什么问题。</p>
-<p>面试有录像，也会整体计时，一个人只有 12 min 左右，因此要注意言简意赅，答得越流畅能答的题就越多。</p>
-<h2 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h2><p>今年笔试和机试是一起进行的，形式为在机房里发一张纸质笔试试卷和机试试题的 pdf，笔试在纸上写，机试电脑编程 OJ 提交。题目一起下发，一共 2.5h，时间自由分配。</p>
-<p>笔试相较去年形式有很大变化，有 10 个填空，14 个大题，内容涉及机器学习、数据结构、算法、概率论、知识表示与处理（Knowledge Representation &amp; Processing，简称 KRP，是 NJUAI 特色课程）。</p>
-<p>填空部分应该基本是数据结构的 408 考研题，我虽然学过这课但是印象有点淡，因此做的有点慢。</p>
-<p>问答题部分按照顺序概述如下：</p>
+<p>其次，此文操作原理是使用 xrandr 命令的 –scale 选项。如果你排斥使用 xrandr –scale，那此文对你没有帮助。</p>
 <ul>
-<li>几个数据结构的基础题，不难，应该属于常规算法范畴，例如堆排序的初始 heapify 算法、哈夫曼编码等；</li>
-<li>几个概率论的问答题，不需要计算，例如谈谈集中不等式的优劣势之类；</li>
-<li>几个有关 ML 算法的题，AIMA &amp; 西瓜书里的算法都有涉及，这个就看你基础了；</li>
-<li>最后是 5 个<strong>英文的</strong> KRP 题，不过不是很难，不需要很多的背景知识，即使没学过这个课耐心看一看题应该也能写出来一部分。</li>
+<li>非整数的缩放可能会带来十分轻微的画质下降和卡顿（不过影响很小，建议先试试）；</li>
+<li>如果你已经熟练地阅读了 xrandr 的 manpage 并掌握其操作，那你大概率不需要阅读此文。</li>
 </ul>
-<p>整个试卷基本只有数据结构部分需要一些计算，其他部分题目都比较主观，要写字的题有点多。再加之题目过量，因此写字快的同学应该有优势（x）。</p>
-<p>总体来讲，复习的宽度比深度更重要，数据结构和概率论的各种知识点建议全部要覆盖到，不需要去刷很难的题。</p>
-<h2 id="机试"><a href="#机试" class="headerlink" title="机试"></a>机试</h2><p>机试电脑提供了 VScode、VS、Eclipse、Dev C++ 等 IDE，也有安装 python 和 gcc，电脑全程不许连接互联网（只能连内网上传答案）。我个人使用了 VScode 写 ML 题，用 powershell 手动运行 python；使用 Dev C++ 写算法题。不用 VScode 写 C++ 的原因是机房的 gcc 配置有点奇怪，命令行运行不了，反正我一时半会没配好，索性直接 Dev C++ 了。</p>
-<p>机试分为两个大题，第一题是机器学习算法，使用 Python 语言，也需要掌握一些机器学习常用包的基本用法，第二题是常规算法题，Python、C++、Java 等语言皆可。</p>
+<p>最后，如果你只是需要调整全局缩放，并不需要实现不重启 &#x2F; 多显示器不同缩放，那建议使用更稳定的传统方法而非此文的方法。</p>
 <ul>
-<li>第一题第一小问是需要你手搓几个距离度量函数，第二小问是使用你搓的这个距离度量实现两种聚类算法；</li>
-<li>第二题据说是一个力扣原题，估计难度在 OI 里算普及+&#x2F;提高-，具体题面忘了。</li>
+<li>调整全局缩放的传统方法一是直接使用 kde 系统设置中的全局缩放设置，二是使用 xrandr –dpi 选项。前者众所周知需要重启，后者则必须要在 X 服务启动前就设定，因此一般需要写死在 ~&#x2F;.Xsession 中，也不能在系统启动后热调整缩放。</li>
 </ul>
-<p>我整体大概安排了 1h 写代码，但是只完成了第一题的距离函数和一个聚类算法的实现，后续时间不够了。在没有网络的环境下 debug numpy 代码确实是有一点点折磨，使用时间远超预期。机试提交方式比较奇葩，是提交一个 zip，而且需要提交到指定账户，每次提交都需要输入密码。所以如果之后还是这种方式建议做完一题先提交一下，避免最后来不及提交导致杯具。</p>
-<h2 id="宣讲会"><a href="#宣讲会" class="headerlink" title="宣讲会"></a>宣讲会</h2><p>最后笔试面试结束后有个宣讲会，中场休息的时候在第三领域会提供茶歇，遂直接开启学术八戒模式。最后还和所有老师合影留念，不过我直到现在还没在任何地方看到这张照片，不知道刊登到哪里了。</p>
-<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>由于我自觉面试表现较好（问的 ML 题正好撞我昨天晚上复习的枪口上了），笔试应该也没太拖后腿，所以还是比较顺利地过了。夏令营没过&#x2F;候补的话后续还有与推免一次机会，考察方式类似，可以再试一次，不过预推免好像捞本校居多。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本人的需求是这样的，我有一台 14 英寸分辨率为 2160x1440 的笔记本，日常缩放为 175%，在宿舍里有一台 23.8 英寸分辨率为 2560x1440 的显示器，日常缩放为 150%，回宿舍就用显示器看。然而在使用 Xorg 的 Kubuntu 下，每次回宿舍或者出门都要调缩放、重启，实在是不够完美。经过 stfw，我摸索出了一个不重启调整缩放的 workaround，这个方法同时也能实现多屏幕不同缩放比。</p>
+<p>我的想法是让全局缩放一直开在 175%，也就是比较高的一档，然后通过渲染出超分辨率的画面再缩小到显示器上，就可以实现降低全局缩放的效果。先贴一下效果图，我的显示器分辨率为 2560x1440，这里 Resolution 显示的是 2816x1584，说明已经完成了显示缩小。</p>
+<p><img src="/assets/xrandr1.png" srcset="/img/loading.gif" lazyload alt="效果展示"></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>首先，直接运行 <code>xrandr</code> 命令，可以看到目前有哪几个显示器以及它们的名字。输出应该类似于</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Screen</span> <span class="hljs-number">0</span>: minimum <span class="hljs-number">320</span> x <span class="hljs-number">200</span>, current <span class="hljs-number">4080</span> x <span class="hljs-number">1440</span>, maximum <span class="hljs-number">8192</span> x <span class="hljs-number">8192</span><br><span class="hljs-attribute">eDP</span>-<span class="hljs-number">1</span> connected primary <span class="hljs-number">2160</span>x1440+<span class="hljs-number">0</span>+<span class="hljs-number">0</span> (normal left inverted right x axis y axis) <span class="hljs-number">275</span>mm x <span class="hljs-number">183</span>mm<br>   <span class="hljs-attribute">2160x1440</span>     <span class="hljs-number">60</span>.<span class="hljs-number">00</span>*+<br> <br><span class="hljs-attribute">DP</span>-<span class="hljs-number">1</span> connected <span class="hljs-number">1920</span>x1080+<span class="hljs-number">2160</span>+<span class="hljs-number">0</span> (normal left inverted right x axis y axis) <span class="hljs-number">521</span>mm x <span class="hljs-number">293</span>mm<br>   <span class="hljs-attribute">1920x1080</span>     <span class="hljs-number">60</span>.<span class="hljs-number">00</span>*+  <span class="hljs-number">50</span>.<span class="hljs-number">00</span>    <span class="hljs-number">59</span>.<span class="hljs-number">94</span>  <br></code></pre></td></tr></table></figure>
+
+<p>接下来讲一下 xrandr 工具用得到的各个选项的含义和使用方法。以下中括号表示需要代入具体内容，实际敲的时候不需要写中括号。</p>
+<ul>
+<li><code>--fb [A]x[B]</code>：指定画布大小为 A 像素长乘 B 像素宽。注意中间是小写字母 x，下同。</li>
+<li><code>--output [A]</code>：后续的选项对显示器 A 生效。<ul>
+<li>显示器的名称可以通过上面说的方法，即直接执行 <code>xrandr</code> 看到</li>
+</ul>
+</li>
+<li><code>--mode [A]x[B]</code>：指定当前显示器输出分辨率为 A 乘 B。</li>
+<li><code>--scale [A]x[B]</code>：指定当前显示器在长上<strong>缩小</strong> A 倍，在宽上<strong>缩小</strong> B 倍，因此 A &gt; 1 表示缩小。</li>
+<li><code>--pos [A]x[B]</code>：指定当前显示器在画布上的位置。具体来说就是显示器应该显示的区域的左上角在画布上的坐标。<ul>
+<li>坐标原点为左上角，单位为像素</li>
+</ul>
+</li>
+<li><code>--panning [A]x[B]+[C]+[D]</code>：设定当前显示器可点击区域为左上角坐标为 (C 像素, D 像素)，长为 A 像素，宽为 B 像素的矩形。所谓可点击区域，就是说在画布上的这一块区域是实际显示内容、可以点击的。</li>
+</ul>
+<p>上面这部分内容可以和 xrandr 的 manpage 结合起来看，毕竟我复述的肯定不如官方文档全。我们的原理是先使用 –fb 选项渲染出一个超分辨率的画布，然后使用 –scale 选项缩小它的大小，并且使用 –pos 选项指定屏幕显示画布那一块被缩小了的部分。</p>
+<h3 id="单显示器"><a href="#单显示器" class="headerlink" title="单显示器"></a>单显示器</h3><p>结合上面所说的，不重启实现单显示器缩放命令形式应该类似于</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xrandr --fb [C*E]x[D*F] --output [display] --mode [C]x[D] --panning [C*E]x[D*F]+0+0 --scale [E]x[F]<br></code></pre></td></tr></table></figure>
+
+<p>举个例子，我们现在有一个物理分辨率为 2560 x 1440 的显示器，名字叫 HDMI-A-0，现在的全局缩放为 175%，需要改为 150%。</p>
+<p>计算可得 $\sqrt{\frac{175}{150}}\approx 1.08$。由于渲染的分辨率需要为整数，选择缩小 1.1 倍。</p>
+<blockquote>
+<p>我一开始忘记开根号了，缩小了 1.2 倍，然后一直寻思字怎么这么小（捂脸哭.jpg</p>
+</blockquote>
+<p>以缩小 1.1 倍为例，需要渲染一个 (2560 * 1.1) x (1440 * 1.1) &#x3D; 2816 x 1584 的画布然后再缩小。可点击区域就是左上为 (0, 0)，2816 x 1584 大小的区域。因此命令为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xrandr --fb 2816x1584 --output HDMI-A-0 --mode 2560x1440 --scale 1.1x1.1 --pos 0x0 --panning 2816x1584+0+0<br></code></pre></td></tr></table></figure>
+
+<h3 id="多显示器"><a href="#多显示器" class="headerlink" title="多显示器"></a>多显示器</h3><p>多显示器不同分辨率拼接的命令形式应该为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xrandr --fb [C*E+A]x[D*F] --output [display1] --auto --output [display2] --mode [C]x[D] --panning [C*E]x[D*F]+[A]+0 --scale [E]x[F] --right-of [display1]<br></code></pre></td></tr></table></figure>
+
+<p>举个例子，这里参考了 <a target="_blank" rel="noopener" href="https://nmgit.net/2020/139/">Barry 的笔记</a>。有一个物理分辨率为 2160x1440 的笔记本屏幕 eDP-1（这分辨率一眼 matebook），一个物理分辨率为 1920x1080 的显示器 DP-1 需要拼接在笔记本屏幕右侧，内容相较于笔记本屏幕需要缩小 1.5 倍。</p>
+<p>由于是横向排布，整个画布的长应该为 1920*1.5 + 2160 &#x3D; 5040，宽为 max{1080*1.5, 1440} &#x3D; 1620。笔记本屏幕的位置应为 0x0，显示器的左上角位置为 2160*0。笔记本可点击区域直接使用默认设置，显示器的可点击区域为左上角为 2160*0，大小为 2880*1620 的矩形。因此，命令行为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xrandr --dpi 200 --fb 5040x1620 --output eDP-1 --mode 2160x1440 --pos 0x0 --output DP-1 --scale 1.5x1.5 --pos 2160x0 --panning 2880x1620+2160+0<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这个 –dpi 选项是作者原来就写的，在我的电脑上不起作用，具体原因不明，我猜是因为 KDE 的默认缩放覆盖了这个设置。我个人是感觉不写也行，大家可以自己试试写不写 dpi 有没有区别。</p>
+</blockquote>
+<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>如果你在使用 KDE plasma 5 作为桌面，可能 plasma shell 不会根据最新的分辨率自动调整位置，这个时候需要重启 plasma shell 来适应新的分辨率。好在 plasma shell 是支持热重启的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">kquitapp5 plasmashell &amp;&amp; kstart5 plasmashell<br></code></pre></td></tr></table></figure>
+
+<p>此时，如果你在屏幕下方和右方有 plasma 面板，你可能会发现它们变得十分卡顿。这估计是 KDE 的任务栏坐标不是整数导致渲染出问题，目前好像没啥办法可以根本解决（<strong>如果有大佬会请一定要娇娇我</strong>）。一个妥协的方法是将这些面板移到屏幕上方或者左侧。</p>
+<blockquote>
+<p>花了一个小时和这个 bug 搏斗，最终还是妥协了</p>
+</blockquote>
 
                 
               </div>
@@ -358,9 +399,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%9D%A2%E7%BB%8F/">#面经</a>
+        <a href="/tags/linux/">#linux</a>
       
-        <a href="/tags/NJUAI/">#NJUAI</a>
+        <a href="/tags/kde/">#kde</a>
+      
+        <a href="/tags/xorg/">#xorg</a>
       
     </div>
   
@@ -372,8 +415,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>【面经】2023 NJU AI 夏令营面经</div>
-      <div>http://zhoujy.com/2023/07/12/2023-NJU-AI-夏令营面经/</div>
+      <div>【技术】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放</div>
+      <div>http://zhoujy.com/2023/06/29/技术/xorg-scaling/</div>
     </div>
     <div class="license-meta">
       
@@ -385,7 +428,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月12日</div>
+          <div>2023年6月29日</div>
         </div>
       
       
@@ -417,9 +460,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/07/12/2023-CUHK-CSE-Early-Admission-%E9%9D%A2%E7%BB%8F/" title="【面经】2023 CUHK CSE Early Admission 面经">
+                      <a href="/2023/06/29/%E6%8A%80%E6%9C%AF/KDE-beautify/" title="【技术】人类早期驯服野生 KDE 珍贵记录：KDE 美化经验分享">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【面经】2023 CUHK CSE Early Admission 面经</span>
+                        <span class="hidden-mobile">【技术】人类早期驯服野生 KDE 珍贵记录：KDE 美化经验分享</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -427,8 +470,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/29/%E4%BA%BA%E7%B1%BB%E6%97%A9%E6%9C%9F%E9%A9%AF%E6%9C%8D%E9%87%8E%E7%94%9F-KDE-%E7%8F%8D%E8%B4%B5%E8%AE%B0%E5%BD%95/" title="【技术】人类早期驯服野生 KDE 珍贵记录">
-                        <span class="hidden-mobile">【技术】人类早期驯服野生 KDE 珍贵记录</span>
+                      <a href="/2023/06/28/helloworld/" title="【系统】Hello, world!">
+                        <span class="hidden-mobile">【系统】Hello, world!</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
