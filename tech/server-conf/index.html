@@ -16,25 +16,23 @@
   <meta name="author" content="ZJsheep">
   <meta name="keywords" content="">
   
-    <meta name="description" content="鼠鼠的生活充满了各种幸运，然而他有一个最大的不幸，那就是感知不到这些幸福。    六年级那年，鼠鼠发觉自己在写字时，随着用力的加大拇指总会滑向食指一侧，以至于在最后往往深深掐进食指里，当写字时间长了甚至会留下一道血印子，虽然从未出血但是看起来有点触目惊心。那一天，鼠鼠决定改变自己的握笔姿势。    小时候，鼠鼠最害怕的科目是语文，而这其中最大的挑战是作文。每次临到写作文，选题是第一大难关。每">
+    <meta name="description" content="以下是本人对服务器新机用的比较舒服的一套配置，并不是最优解，仅供参考。如果对 Linux 和 ssh 操作不熟悉，建议移步其它详细讲解的教程。 本地 ssh 配置加下面这项 123Host &lt;alias&gt;  HostName &lt;IP&gt;  User &lt;username&gt;  注意 Host Alias 是大小写敏感的。 ssh-copy-id如果本地还没生成 ssh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【随笔】心与世界间的雾">
-<meta property="og:url" content="http://zhoujy.com/%E9%9A%8F%E7%AC%94/fog/index.html">
+<meta property="og:title" content="【搞机】服务器新机配置参考">
+<meta property="og:url" content="http://zhoujy.com/tech/server-conf/index.html">
 <meta property="og:site_name" content="ZJsheep&#39;s Dream">
-<meta property="og:description" content="鼠鼠的生活充满了各种幸运，然而他有一个最大的不幸，那就是感知不到这些幸福。    六年级那年，鼠鼠发觉自己在写字时，随着用力的加大拇指总会滑向食指一侧，以至于在最后往往深深掐进食指里，当写字时间长了甚至会留下一道血印子，虽然从未出血但是看起来有点触目惊心。那一天，鼠鼠决定改变自己的握笔姿势。    小时候，鼠鼠最害怕的科目是语文，而这其中最大的挑战是作文。每次临到写作文，选题是第一大难关。每">
+<meta property="og:description" content="以下是本人对服务器新机用的比较舒服的一套配置，并不是最优解，仅供参考。如果对 Linux 和 ssh 操作不熟悉，建议移步其它详细讲解的教程。 本地 ssh 配置加下面这项 123Host &lt;alias&gt;  HostName &lt;IP&gt;  User &lt;username&gt;  注意 Host Alias 是大小写敏感的。 ssh-copy-id如果本地还没生成 ssh">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://zhoujy.com/assets/%E6%9C%89%E8%BF%99%E4%BA%8B.jpg">
-<meta property="article:published_time" content="2024-10-04T11:20:21.000Z">
-<meta property="article:modified_time" content="2024-10-31T12:28:45.599Z">
+<meta property="article:published_time" content="2024-05-21T06:05:01.000Z">
+<meta property="article:modified_time" content="2024-11-23T16:26:10.936Z">
 <meta property="article:author" content="ZJsheep">
-<meta property="article:tag" content="心理">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="tool">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://zhoujy.com/assets/%E6%9C%89%E8%BF%99%E4%BA%8B.jpg">
   
   
   
-  <title>【随笔】心与世界间的雾 - ZJsheep&#39;s Dream</title>
+  <title>【搞机】服务器新机配置参考 - ZJsheep&#39;s Dream</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -72,7 +70,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhoujy.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhoujy.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -227,7 +225,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">【随笔】心与世界间的雾</span>
+            <span id="subtitle">【搞机】服务器新机配置参考</span>
           
         </div>
 
@@ -238,8 +236,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-04 19:20" pubdate>
-          2024年10月4日 晚上
+        <time datetime="2024-05-21 14:05" pubdate>
+          2024年5月21日 下午
         </time>
       </span>
     
@@ -250,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          1.4k 字
         
       </span>
     
@@ -261,7 +259,7 @@
         
         
         
-          20 分钟
+          6 分钟
         
       </span>
     
@@ -291,19 +289,6 @@
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
       
-  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
 
     </div>
 
@@ -312,116 +297,34 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【随笔】心与世界间的雾</h1>
+            <h1 style="display: none">【搞机】服务器新机配置参考</h1>
             
             
               <div class="markdown-body">
                 
-                <br>
+                <p>以下是本人对服务器新机用的比较舒服的一套配置，并不是最优解，仅供参考。如果对 Linux 和 ssh 操作不熟悉，建议移步其它详细讲解的教程。</p>
+<h2 id="本地-ssh-配置"><a href="#本地-ssh-配置" class="headerlink" title="本地 ssh 配置"></a>本地 ssh 配置</h2><p>加下面这项</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">Host &lt;<span class="hljs-built_in">alias</span>&gt;<br>  HostName &lt;IP&gt;<br>  User &lt;username&gt;<br></code></pre></td></tr></table></figure>
 
-<p class='pos'>
-鼠鼠的生活充满了各种幸运，然而他有一个最大的不幸，那就是感知不到这些幸福。
+<p>注意 Host Alias 是大小写敏感的。</p>
+<h2 id="ssh-copy-id"><a href="#ssh-copy-id" class="headerlink" title="ssh-copy-id"></a>ssh-copy-id</h2><p>如果本地还没生成 ssh 配置，则本地运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen<br></code></pre></td></tr></table></figure>
 
-<hr>
-<p class='neg'>
-六年级那年，鼠鼠发觉自己在写字时，随着用力的加大拇指总会滑向食指一侧，以至于在最后往往深深掐进食指里，当写字时间长了甚至会留下一道血印子，虽然从未出血但是看起来有点触目惊心。那一天，鼠鼠决定改变自己的握笔姿势。
+<p>然后如果本地是 Linux，则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-copy-id &lt;<span class="hljs-built_in">alias</span>&gt;<br></code></pre></td></tr></table></figure>
 
-<hr>
-<p class='pos1'>
-小时候，鼠鼠最害怕的科目是语文，而这其中最大的挑战是作文。每次临到写作文，选题是第一大难关。每到这时，鼠鼠总感觉日月的流驶似乎并没有在自己的心上留下任何痕迹。感兴趣的事物很多，玩电脑，考全班第一，然而这些事情都上不了台面。在少有的一些灵感中，适合作为记叙文题材的、富含人与人之间情感的事情更是全部记不清了。这主要是因为，除了这些开心的时间，鼠鼠的其他时间都在要么是害羞，要么是害怕中战战兢兢的度过，除此之外似乎很少产生其它情感。
+<p>如果没装 <code>ssh-copy-id</code> 或者是 Windows，则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> ~/.ssh/id_rsa.pub | ssh &lt;<span class="hljs-built_in">alias</span>&gt; <span class="hljs-string">&quot;cat &gt;&gt; ~/.ssh/authorized_keys&quot;</span><br></code></pre></td></tr></table></figure>
 
-<p class='pos1'>
-然而鼠鼠很聪明，鼠鼠能够娴熟地掌握上课老师所讲的写作技巧，也能煞有介事地模仿范文，只要绞尽脑汁通过上面的第一关，就能写出足以赢得夸奖的作文。作文里关于情感的描写不是完全是编的，就是通过事后诸葛亮的复盘强行加上的，然而作文读起来真切感人，非常细腻，富含大段大段老师最喜欢的细节描写和心理描写。
+<h2 id="tmux-配置"><a href="#tmux-配置" class="headerlink" title="tmux 配置"></a>tmux 配置</h2><p><code>cat</code> 以下内容进 <code>~/.tmux.conf</code>。注意改了以后 tmux 前缀会变成 Ctrl A，这也是为了和本地的 tmux 区分。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># in case the terminal does not display color</span><br><span class="hljs-built_in">set</span> -g default-terminal <span class="hljs-string">&quot;screen-256color&quot;</span><br><br><span class="hljs-comment"># Send prefix</span><br>set-option -g prefix C-a<br>unbind-key C-a<br>bind-key C-a send-prefix<br><br><span class="hljs-comment"># Use Alt-arrow keys to switch panes</span><br><span class="hljs-built_in">bind</span> -n M-Left select-pane -L<br><span class="hljs-built_in">bind</span> -n M-Right select-pane -R<br><span class="hljs-built_in">bind</span> -n M-Up select-pane -U<br><span class="hljs-built_in">bind</span> -n M-Down select-pane -D<br><br><span class="hljs-comment"># Shift arrow to switch windows</span><br><span class="hljs-built_in">bind</span> -n S-Left previous-window<br><span class="hljs-built_in">bind</span> -n S-Right next-window<br><br><span class="hljs-comment"># Mouse mode</span><br><span class="hljs-built_in">set</span> -g mouse on<br><br><span class="hljs-comment"># Set easier window split keys</span><br>bind-key v split-window -h<br>bind-key h split-window -v<br><br><span class="hljs-comment"># Easy config reload</span><br>bind-key r source-file ~/.tmux.conf \; display-message <span class="hljs-string">&quot;tmux.conf reloaded&quot;</span><br><br><span class="hljs-comment"># set more history</span><br>set-option -g history-limit 10000<br></code></pre></td></tr></table></figure>
 
-<hr>
-<p class='neg1'>
-鼠鼠认真地看了好多字帖的握笔教学，再加上对于自己手指的受力进行了大量的分析，得出几个可能的稳定结构，并逐一进行尝试，然而结果不甚理想。好多握笔教学里面的姿势本身感觉就是错的，而有一些显然是装的，只有在手指不发力时才能做出这样的姿势。而鼠鼠通过分析得出的几个力学结构无一例外地都会在写了一定量的字之后倒塌。
+<h2 id="代理配置"><a href="#代理配置" class="headerlink" title="代理配置"></a>代理配置</h2><p>有时候服务器不能直接连接外网，需要使用本地做跳板，用以下命令设置 socks5 命令行代理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> all_proxy=<span class="hljs-string">&quot;socks5://&lt;your ip&gt;:&lt;your port&gt;&quot;</span><br><span class="hljs-built_in">unset</span> all_proxy<br></code></pre></td></tr></table></figure>
 
-<p class='neg1'>
-时间一天天地过去，鼠鼠仍未找到心里认为的正确握笔姿势，然而此时鼠鼠已经不会原来的写字方法了，颇有邯郸学步之风。鼠鼠的握笔姿势陷入混乱，每次写字都要陷入矛盾的心情。
+<p>也可以用以下命令直接将上述配置的别名写到 bashrc 中，供下次方便调用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;alias ladderon=&#x27;export all_proxy=\&quot;socks5://&lt;your ip&gt;:&lt;your port&gt;\&quot;&#x27;&quot;</span> &gt;&gt; ~/.bashrc<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;alias ladderoff=&#x27;unset all_proxy&#x27;&quot;</span> &gt;&gt; ~/.bashrc<br></code></pre></td></tr></table></figure>
 
-<hr>
-<p class='pos2'>
-随着年级的增长，作文要求的字数越来越长。此时，鼠鼠不仅在作文的选题时有困难，在行文时也往往不知道怎么下笔，很难凑满规定的字数。鼠鼠其实心里有很多话想说，但是往往自觉这些话题别人根本不想听，更加别说在命题作文里写了。
-
-<p class='pos2'>
-鼠鼠有记日记的习惯。更准确地说，记日记不是一种习惯，而是一种治疗鼠鼠写不出作字说不出话的良药。打个比方，鼠鼠的表达能力就像冬季雨天的车窗，平时平时被迫写些并不在我头脑里的字句，车窗会慢慢地起雾以至于看不清外面的世界，而写日记就相当于用干燥的空调风吹拂车窗，必须要隔一段时间吹一会才能保持心灵的窗户足够明亮。
-
-<hr>
-<p class='neg2'>
-鼠鼠写字变得十分别扭，尤其是写快了之后，往往会有一刹那整个手完全僵住，所有肌肉全部绷紧，以至于无法向任何一个方向移动。老师正在飞快地报着默写，僵硬的手只能再挤出一点力气。写字变得十分艰难，手指每动一下都需要大脑去纠正每块肌肉的运动。脑海已被占满，什么都想不了，什么都做不了，明明只是要计算一道题里很小一部分的草稿，明明答案的思路已然清晰可见，但是就是这几个数字，拒绝被写到草稿纸上。
-
-<p class='neg2'>
-而更恐怖的是与之而来的焦虑感，如果写一个字都要如此痛苦，那么未来几十年的人生之路将怎么走下去？
-
-<hr>
-<p class='pos2'>
-鼠鼠觉得自己心里的这些东西说出来一定会受人嘲讽，因为大家都没有这样的想法，就只有自己有，那岂不是滑天下之大稽了吗？鼠鼠只有在没人看的日记中才能尝试清晰地表达自我，并且即使没人看，鼠鼠也给日记加上了一层保险，这能够让让鼠鼠更舒服地表达。
-
-<p class='pos2'>
-鼠鼠的日记用了一种特殊的修辞手法进行处理，外人看来就是纯粹的景色描写。可能心思细腻、有一定阅读能力的人来读能够感受出这坚实保护壳下确实存在一些情感的鼓动，但是基本没法从中得出任何具体信息。这样，即使别人读到了日记，也永远无法破解鼠鼠的想法。
-
-<blockquote>
-<p class='pos2'>
-左转登上石子的小道，<br>
-未知的路通向左上方，<br>
-柳树的新芽散发着早春的气息，<br>
-而路边的枯叶却将冬天刻入骨髓。<br>
-</blockquote>
-
-<hr>
-<p class='neg3'>
-很多人其实没有意识到，人的思想也是需要媒介的，通常情况下这媒介是语言。当鼠鼠逐步落入无法表达的冰河，他的大脑也开始逐渐上冻，缤纷的色彩开始模糊，尖利的棱角扭曲成一个大大的问号。而逻辑推理和计算更是需要笔的辅助，然而鼠鼠的手僵住了，闪转腾挪的想法只能化作一道闪电，闷在颅内一闪而过，死于无边浓稠的黑夜。
-
-<p class='neg3'>
-心灵与世界之间起了如城墙般的浓雾。雾是并无实体存在的东西，伸手即能穿过，然而却确确实实横亘在心与世界之间。世界的色彩完全看不见，只剩下雾中鹤唳般的风声，以及沁人心脾的湿冷。
-
-<hr>
-<p class='pos3'>
-“我的声音呢？我自己的声音呢？我现在在想什么？想说什么，想干什么？我不知道，我忘记了，也许我从未真正想清楚过。”
-
-<hr>
-<p class='neg4'>
-“我有很多话想说，有很多事想做。我知道大家爱我，我也爱大家，但是有什么不对，有什么弄错了，雾慢慢起来了，记忆里的风景在褪去，我慢慢忘记人们和爱。”
-
-<hr>
-<p class='pos4'>
-The monster's runnin' wild inside of me.
-
-<p class='pos5'>
-I'm faded.
-
-<hr>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>希望大家能够善待因为心理问题而承受着痛苦的人。他们并不是异类，她们的心理问题大多要么是因为天生，要么是因为替这个世界承担了过多的负面情绪。在情绪的死亡回旋中，一点小小的问候和关怀就能够帮助他们走出泥潭。</p>
-<h3 id="参考文献（不是"><a href="#参考文献（不是" class="headerlink" title="参考文献（不是"></a>参考文献（不是</h3><ul>
-<li><em>Faded</em> by Alan Walker</li>
-<li>《世界尽头与冷酷仙境》 by 村上春树</li>
-</ul>
-<h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><p>以上均为虚构情节，如有雷同纯属巧合。<br><img src="/assets/%E6%9C%89%E8%BF%99%E4%BA%8B.jpg" srcset="/img/loading.gif" lazyload></p>
-<style>
-    .neg { color: #598bda; opacity: 100%; }
-    .neg1 { color: #598bda; opacity: 90%; }
-    .neg2 { color: #598bda; opacity: 85%; }
-    .neg3 { color: #598bda; opacity: 65%; }
-    .neg4 { color: #598bda; opacity: 50%; }
-    .pos { opacity: 95%; }
-    .pos1 { opacity: 85%; }
-    .pos2 { opacity: 80%; }
-    .pos3 { opacity: 60%; }
-    .pos4 { opacity: 45%; }
-    .pos5 { opacity: 20%; }
-</style>
-<!-- 
-<script>
-    const paragraphs = document.querySelectorAll('p');
-    paragraphs.forEach((paragraph, index) => {
-        if ((index + 1) % 2 === 0) {
-            paragraph.classList.add('low-saturation-blue');
-        } else {
-            paragraph.classList.add('low-saturation-yellow');
-        }
-    });
-</script> -->
                 
               </div>
             
@@ -433,9 +336,9 @@ I'm faded.
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%BF%83%E7%90%86/">#心理</a>
+        <a href="/tags/linux/">#linux</a>
       
-        <a href="/tags/%E9%9A%8F%E7%AC%94/">#随笔</a>
+        <a href="/tags/tool/">#tool</a>
       
     </div>
   
@@ -447,8 +350,8 @@ I'm faded.
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>【随笔】心与世界间的雾</div>
-      <div>http://zhoujy.com/随笔/fog/</div>
+      <div>【搞机】服务器新机配置参考</div>
+      <div>http://zhoujy.com/tech/server-conf/</div>
     </div>
     <div class="license-meta">
       
@@ -460,7 +363,7 @@ I'm faded.
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月4日</div>
+          <div>2024年5月21日</div>
         </div>
       
       
@@ -492,9 +395,9 @@ I'm faded.
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/top/" title="【置顶】欢迎来到 ZJsheep 的博客！">
+                      <a href="/sport/badminton/" title="【羽球】羽毛球装备纯主观评测">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【置顶】欢迎来到 ZJsheep 的博客！</span>
+                        <span class="hidden-mobile">【羽球】羽毛球装备纯主观评测</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -502,8 +405,8 @@ I'm faded.
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E9%9A%8F%E7%AC%94/emotion-first-aid/" title="【心理】速效救心鸡汤">
-                        <span class="hidden-mobile">【心理】速效救心鸡汤</span>
+                      <a href="/prose/53-dawns-2/" title="【随笔】渡">
+                        <span class="hidden-mobile">【随笔】渡</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -521,6 +424,19 @@ I'm faded.
 
     <div class="side-col d-none d-lg-block col-lg-2">
       
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
   </div>

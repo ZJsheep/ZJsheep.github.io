@@ -18,14 +18,14 @@
   
     <meta name="description" content="为了帮助搜索，这里加点 tag。 （ubuntu, kde, x-server, kubuntu, plasma, x-org）  这篇文章对你有帮助吗？首先，本文适用于使用 Xorg 图形服务的 Linux 系统，如果你不在使用 Xorg，那此文对你没有帮助。  目前 Gnome 默认使用 Wayland 而非 Xorg，因此默认配置的 Ubuntu 20.04~22.04 不适用。 目前 K">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【技术】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放">
-<meta property="og:url" content="http://zhoujy.com/%E6%8A%80%E6%9C%AF/xorg-scaling/index.html">
+<meta property="og:title" content="【搞机】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放">
+<meta property="og:url" content="http://zhoujy.com/tech/xorg-scaling/index.html">
 <meta property="og:site_name" content="ZJsheep&#39;s Dream">
 <meta property="og:description" content="为了帮助搜索，这里加点 tag。 （ubuntu, kde, x-server, kubuntu, plasma, x-org）  这篇文章对你有帮助吗？首先，本文适用于使用 Xorg 图形服务的 Linux 系统，如果你不在使用 Xorg，那此文对你没有帮助。  目前 Gnome 默认使用 Wayland 而非 Xorg，因此默认配置的 Ubuntu 20.04~22.04 不适用。 目前 K">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://zhoujy.com/assets/xrandr1.png">
 <meta property="article:published_time" content="2023-06-29T03:04:02.000Z">
-<meta property="article:modified_time" content="2024-09-04T03:01:41.908Z">
+<meta property="article:modified_time" content="2024-11-23T16:26:10.936Z">
 <meta property="article:author" content="ZJsheep">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="kde">
@@ -35,7 +35,7 @@
   
   
   
-  <title>【技术】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放 - ZJsheep&#39;s Dream</title>
+  <title>【搞机】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放 - ZJsheep&#39;s Dream</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhoujy.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhoujy.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -228,7 +228,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">【技术】Xorg 实现不重启调整缩放 & 多显示器不同缩放</span>
+            <span id="subtitle">【搞机】Xorg 实现不重启调整缩放 & 多显示器不同缩放</span>
           
         </div>
 
@@ -262,7 +262,7 @@
         
         
         
-          27 分钟
+          14 分钟
         
       </span>
     
@@ -292,19 +292,6 @@
   <div class="row nomargin-x">
     <div class="side-col d-none d-lg-block col-lg-2">
       
-  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
 
     </div>
 
@@ -313,7 +300,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【技术】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放</h1>
+            <h1 style="display: none">【搞机】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放</h1>
             
             
               <div class="markdown-body">
@@ -415,8 +402,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>【技术】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放</div>
-      <div>http://zhoujy.com/技术/xorg-scaling/</div>
+      <div>【搞机】Xorg 实现不重启调整缩放 &amp; 多显示器不同缩放</div>
+      <div>http://zhoujy.com/tech/xorg-scaling/</div>
     </div>
     <div class="license-meta">
       
@@ -460,9 +447,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E6%8A%80%E6%9C%AF/KDE-beautify/" title="【技术】人类早期驯服野生 KDE 珍贵记录：KDE 美化经验分享">
+                      <a href="/tech/KDE-beautify/" title="【搞机】人类早期驯服野生 KDE 珍贵记录：KDE 美化经验分享">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【技术】人类早期驯服野生 KDE 珍贵记录：KDE 美化经验分享</span>
+                        <span class="hidden-mobile">【搞机】人类早期驯服野生 KDE 珍贵记录：KDE 美化经验分享</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -489,6 +476,19 @@
 
     <div class="side-col d-none d-lg-block col-lg-2">
       
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
   </div>
